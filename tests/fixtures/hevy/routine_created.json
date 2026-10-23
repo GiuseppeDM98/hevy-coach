@@ -1,0 +1,153 @@
+{
+  "routine": {
+    "id": "44444444-4444-4444-8444-444444444444",
+    "title": "Lun · Upper A",
+    "folder_id": 42,
+    "updated_at": "2026-10-25T07:00:01Z",
+    "created_at": "2026-10-25T07:00:01Z",
+    "exercises": [
+      {
+        "index": 0,
+        "title": "Push Up",
+        "rest_seconds": 90,
+        "notes": "max-2: fermati a 2 ripetizioni dal cedimento",
+        "exercise_template_id": "392887AA",
+        "superset_id": null,
+        "sets": [
+          {
+            "index": 0,
+            "type": "normal",
+            "weight_kg": null,
+            "reps": null,
+            "rep_range": null,
+            "distance_meters": null,
+            "duration_seconds": null,
+            "custom_metric": null
+          },
+          {
+            "index": 1,
+            "type": "normal",
+            "weight_kg": null,
+            "reps": null,
+            "rep_range": null,
+            "distance_meters": null,
+            "duration_seconds": null,
+            "custom_metric": null
+          },
+          {
+            "index": 2,
+            "type": "normal",
+            "weight_kg": null,
+            "reps": null,
+            "rep_range": null,
+            "distance_meters": null,
+            "duration_seconds": null,
+            "custom_metric": null
+          },
+          {
+            "index": 3,
+            "type": "normal",
+            "weight_kg": null,
+            "reps": null,
+            "rep_range": null,
+            "distance_meters": null,
+            "duration_seconds": null,
+            "custom_metric": null
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "title": "Inverted Row",
+        "rest_seconds": 90,
+        "notes": null,
+        "exercise_template_id": "425805F4",
+        "superset_id": null,
+        "sets": [
+          {
+            "index": 0,
+            "type": "normal",
+            "weight_kg": null,
+            "reps": null,
+            "rep_range": {
+              "start": 8,
+              "end": 12
+            },
+            "distance_meters": null,
+            "duration_seconds": null,
+            "custom_metric": null
+          },
+          {
+            "index": 1,
+            "type": "normal",
+            "weight_kg": null,
+            "reps": null,
+            "rep_range": {
+              "start": 8,
+              "end": 12
+            },
+            "distance_meters": null,
+            "duration_seconds": null,
+            "custom_metric": null
+          },
+          {
+            "index": 2,
+            "type": "normal",
+            "weight_kg": null,
+            "reps": null,
+            "rep_range": {
+              "start": 8,
+              "end": 12
+            },
+            "distance_meters": null,
+            "duration_seconds": null,
+            "custom_metric": null
+          },
+          {
+            "index": 3,
+            "type": "normal",
+            "weight_kg": null,
+            "reps": null,
+            "rep_range": {
+              "start": 8,
+              "end": 12
+            },
+            "distance_meters": null,
+            "duration_seconds": null,
+            "custom_metric": null
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "title": "Plank",
+        "rest_seconds": 45,
+        "notes": null,
+        "exercise_template_id": "C6C9B8A0",
+        "superset_id": null,
+        "sets": [
+          {
+            "index": 0,
+            "type": "normal",
+            "weight_kg": null,
+            "reps": null,
+            "rep_range": null,
+            "distance_meters": null,
+            "duration_seconds": 45,
+            "custom_metric": null
+          },
+          {
+            "index": 1,
+            "type": "normal",
+            "weight_kg": null,
+            "reps": null,
+            "rep_range": null,
+            "distance_meters": null,
+            "duration_seconds": 45,
+            "custom_metric": null
+          }
+        ]
+      }
+    ]
+  }
+}

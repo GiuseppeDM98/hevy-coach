@@ -1,0 +1,112 @@
+{
+  "page": 1,
+  "page_count": 1,
+  "exercise_templates": [
+    {
+      "id": "B4F2FF72",
+      "title": "Ab Scissors",
+      "type": "reps_only",
+      "primary_muscle_group": "abdominals",
+      "secondary_muscle_groups": [],
+      "equipment": "none",
+      "is_custom": false,
+      "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/62141201-Lying-Scissors-Cross-(male)_Hips_thumbnail_@3x.jpg"
+    },
+    {
+      "id": "99D5F10E",
+      "title": "Ab Wheel",
+      "type": "reps_only",
+      "primary_muscle_group": "abdominals",
+      "secondary_muscle_groups": [],
+      "equipment": "other",
+      "is_custom": false,
+      "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/08571201-Wheel-Rollout_Waist_thumbnail@3x.jpg"
+    },
+    {
+      "id": "5E0DDACE",
+      "title": "Aerobics",
+      "type": "duration",
+      "primary_muscle_group": "cardio",
+      "secondary_muscle_groups": [],
+      "equipment": "none",
+      "is_custom": false,
+      "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/109781201-Step-Side-Jump-over-StepBox-(male)_Plyometrics_thumbnail_@3x.jpg"
+    },
+    {
+      "id": "5BFF35BA",
+      "title": "Assisted Pistol Squats",
+      "type": "reps_only",
+      "primary_muscle_group": "quadriceps",
+      "secondary_muscle_groups": [
+        "hamstrings",
+        "glutes"
+      ],
+      "equipment": "none",
+      "is_custom": false,
+      "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/17621201-Single-Leg-Squat-with-Support-(pistol)_Thighs_thumbnail_@3x.jpg"
+    },
+    {
+      "id": "F51D9080",
+      "title": "Ball Slams",
+      "type": "weight_reps",
+      "primary_muscle_group": "full_body",
+      "secondary_muscle_groups": [],
+      "equipment": "other",
+      "is_custom": false,
+      "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/75351201-Medicine-Ball-Slam-(VERSION-2)-(male)_Waist_thumbnail_@3x.jpg"
+    },
+    {
+      "id": "B3B1D947",
+      "title": "Bear Crawl",
+      "type": "distance_duration",
+      "primary_muscle_group": "full_body",
+      "secondary_muscle_groups": [],
+      "equipment": "none",
+      "is_custom": false,
+      "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/65991201-Bear-Crawl-(low-hip)-(male)_Plyometrics_thumbnail_@3x.jpg"
+    },
+    {
+      "id": "CD6DC8E5",
+      "title": "Bench Dip",
+      "type": "reps_only",
+      "primary_muscle_group": "triceps",
+      "secondary_muscle_groups": [
+        "shoulders",
+        "chest"
+      ],
+      "equipment": "other",
+      "is_custom": false,
+      "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/13991201-Bench-dip-on-floor_Upper-Arms_thumbnail@3x.jpg"
+    },
+    {
+      "id": "A41C7261",
+      "title": "Bicycle Crunch",
+      "type": "reps_only",
+      "primary_muscle_group": "abdominals",
+      "secondary_muscle_groups": [],
+      "equipment": "none",
+      "is_custom": false,
+      "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/00031201-air-bike-m_waist_thumbnail@3x.jpg"
+    },
+    {
+      "id": "aaaaaaaa-0000-4000-8000-000000000001",
+      "title": "Hollowbody Hold",
+      "type": "duration",
+      "primary_muscle_group": "abdominals",
+      "secondary_muscle_groups": [],
+      "equipment": "none",
+      "is_custom": true,
+      "thumbnail_url": null
+    },
+    {
+      "id": "aaaaaaaa-0000-4000-8000-000000000002",
+      "title": "Couch Stretch",
+      "type": "duration",
+      "primary_muscle_group": "other",
+      "secondary_muscle_groups": [],
+      "equipment": "none",
+      "is_custom": true,
+      "thumbnail_url": null
+    }
+  ]
+}

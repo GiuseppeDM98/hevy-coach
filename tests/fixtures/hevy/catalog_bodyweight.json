@@ -1,0 +1,1369 @@
+[
+  {
+    "id": "B4F2FF72",
+    "title": "Ab Scissors",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/62141201-Lying-Scissors-Cross-(male)_Hips_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "99D5F10E",
+    "title": "Ab Wheel",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "other",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/08571201-Wheel-Rollout_Waist_thumbnail@3x.jpg"
+  },
+  {
+    "id": "5E0DDACE",
+    "title": "Aerobics",
+    "type": "duration",
+    "primary_muscle_group": "cardio",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/109781201-Step-Side-Jump-over-StepBox-(male)_Plyometrics_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "5BFF35BA",
+    "title": "Assisted Pistol Squats",
+    "type": "reps_only",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "glutes"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/17621201-Single-Leg-Squat-with-Support-(pistol)_Thighs_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "F51D9080",
+    "title": "Ball Slams",
+    "type": "weight_reps",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "other",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/75351201-Medicine-Ball-Slam-(VERSION-2)-(male)_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "B3B1D947",
+    "title": "Bear Crawl",
+    "type": "distance_duration",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/65991201-Bear-Crawl-(low-hip)-(male)_Plyometrics_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "CD6DC8E5",
+    "title": "Bench Dip",
+    "type": "reps_only",
+    "primary_muscle_group": "triceps",
+    "secondary_muscle_groups": [
+      "shoulders",
+      "chest"
+    ],
+    "equipment": "other",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/13991201-Bench-dip-on-floor_Upper-Arms_thumbnail@3x.jpg"
+  },
+  {
+    "id": "A41C7261",
+    "title": "Bicycle Crunch",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/00031201-air-bike-m_waist_thumbnail@3x.jpg"
+  },
+  {
+    "id": "594450D2",
+    "title": "Bicycle Crunch Raised Legs",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/62111201-Bicycle-Crunch-(male)_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "BD0AD077",
+    "title": "Bird Dog",
+    "type": "reps_only",
+    "primary_muscle_group": "glutes",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "shoulders"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/12411201-Bird-Dog-male_Back_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "A0D8FA1B",
+    "title": "Boxing",
+    "type": "duration",
+    "primary_muscle_group": "cardio",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/102961201-Boxing-Cross-(with-bag-and-gloves)_Plyometrics_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "56092DD1",
+    "title": "Box Jump",
+    "type": "reps_only",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "glutes",
+      "calves"
+    ],
+    "equipment": "other",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/49651201-Jump-Box-(male)_Plyometrics-FIX_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "BB792A36",
+    "title": "Burpee",
+    "type": "reps_only",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/11601201-Burpee_Cardio_thumbnail@3x.jpg"
+  },
+  {
+    "id": "115CC72C",
+    "title": "Burpee Broad Jumps",
+    "type": "distance_duration",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/51871201-Burpee-Long-Jump-with-Push-up-(male)_Cardio_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "86B00DDE",
+    "title": "Burpee Over the Bar",
+    "type": "reps_only",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/101811201-Burpee-Over-the-Bar-(male)_Plyometrics_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "10D76E8F",
+    "title": "Clap Push Ups",
+    "type": "reps_only",
+    "primary_muscle_group": "chest",
+    "secondary_muscle_groups": [
+      "triceps",
+      "shoulders"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/12731101-Clap-Push-Up_Plyometrics_Chest_small_thumbnail@3x.jpg"
+  },
+  {
+    "id": "E23F1F2B",
+    "title": "Climbing",
+    "type": "duration",
+    "primary_muscle_group": "cardio",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": null
+  },
+  {
+    "id": "DCF3B31B",
+    "title": "Crunch",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/02741201-Crunch-Floor-m_waist_thumbnail@3x.jpg"
+  },
+  {
+    "id": "D928C232",
+    "title": "Crunch (Weighted)",
+    "type": "bodyweight_weighted",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/66031201-Weighted-Plate-Lying-Crunch-(male)_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "D8911FC4",
+    "title": "Dead Bug",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/02761201-Dead-Bug_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "B9380898",
+    "title": "Dead Hang",
+    "type": "duration",
+    "primary_muscle_group": "upper_back",
+    "secondary_muscle_groups": [
+      "lats",
+      "forearms"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/50551201-Dead-Hang-Stretch_Stretching_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "BC10A922",
+    "title": "Decline Crunch",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/02771201-Decline-Crunch_Waist_thumbnail@3x.jpg"
+  },
+  {
+    "id": "B2398CD1",
+    "title": "Decline Crunch (Weighted)",
+    "type": "bodyweight_weighted",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/21301201-Weighted-decline-crunch_Waist_thumbnail@3x.jpg"
+  },
+  {
+    "id": "C43825EA",
+    "title": "Decline Push Up",
+    "type": "reps_only",
+    "primary_muscle_group": "chest",
+    "secondary_muscle_groups": [
+      "shoulders",
+      "triceps"
+    ],
+    "equipment": "other",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/02791201-Decline-Push-Up_Chest_thumbnail@3x.jpg"
+  },
+  {
+    "id": "6575F52D",
+    "title": "Diamond Push Up",
+    "type": "reps_only",
+    "primary_muscle_group": "triceps",
+    "secondary_muscle_groups": [
+      "chest",
+      "shoulders"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/02831101-Diamond-Push-up_Upper-Arms_small_thumbnail@3x.jpg"
+  },
+  {
+    "id": "7DA843A3",
+    "title": "Downward Dog",
+    "type": "reps_only",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/34691201-Downward-Facing-Dog_Stretching_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "AFC29472",
+    "title": "Dragon Flag",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/40581201-Leg-Raise-Dragon-Flag_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "B7192800",
+    "title": "Dragonfly",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/40581201-Leg-Raise-Dragon-Flag_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "A01BE509",
+    "title": "Elbow to Knee",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/23121201-Lying-Elbow-to-Knee_Waist_thumbnail@3x.jpg"
+  },
+  {
+    "id": "50C613D0",
+    "title": "Farmers Walk",
+    "type": "short_distance_weight",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "other",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/21331201-Farmers-walk_Cardio_thumbnail@3x.jpg"
+  },
+  {
+    "id": "2AF8B552",
+    "title": "Fire Hydrants",
+    "type": "reps_only",
+    "primary_muscle_group": "glutes",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/30351201-Bent-Leg-Side-Kick-(kneeling)-(male)_Hips-FIX_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "A57D38D5",
+    "title": "Floor Triceps Dip",
+    "type": "reps_only",
+    "primary_muscle_group": "triceps",
+    "secondary_muscle_groups": [
+      "shoulders"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/08151201-Triceps-Dips-Floor_Upper-Arms_thumbnail@3x.jpg"
+  },
+  {
+    "id": "2FA77B28",
+    "title": "Flutter Kicks",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/12441201-Flutter-Kicks-(version-3)_Hips_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "207DC636",
+    "title": "Frog Jumps",
+    "type": "reps_only",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [
+      "glutes",
+      "hamstrings",
+      "calves"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/101651201-Frog-Jump_Plyometrics_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "0E608350",
+    "title": "Front Lever Hold",
+    "type": "duration",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/72511201-Hanging-Front-Lever-Raise-(male)_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "30F03BF0",
+    "title": "Front Lever Raise",
+    "type": "reps_only",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/72511201-Hanging-Front-Lever-Raise-(male)_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "CDA23948",
+    "title": "Glute Bridge",
+    "type": "reps_only",
+    "primary_muscle_group": "glutes",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "quadriceps"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/06681201-Rear-Decline-Bridge_Waist-FIX_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "987234AB",
+    "title": "Glute Kickback on Floor",
+    "type": "reps_only",
+    "primary_muscle_group": "glutes",
+    "secondary_muscle_groups": [
+      "hamstrings"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/30341201-Bent-Leg-Kickback-(kneeling)-(male)_Hips-FIX_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "BE3615CF",
+    "title": "Handstand Hold",
+    "type": "duration",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/33021101-Handstand_Upper-arms_small_thumbnail@3x.jpg"
+  },
+  {
+    "id": "90B04F96",
+    "title": "Handstand Push Up",
+    "type": "reps_only",
+    "primary_muscle_group": "shoulders",
+    "secondary_muscle_groups": [
+      "chest",
+      "triceps"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/04711201-Handstand-Push-Up_Shoulders_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "08590920",
+    "title": "Hanging Knee Raise",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [
+      "forearms"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/98191201-Hanging-Knee-Raise-(male)_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "F8356514",
+    "title": "Hanging Leg Raise",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [
+      "forearms"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/04751201-Hanging-Straight-Leg-Raise_Hips-FIX_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "567FB505",
+    "title": "Heel Taps",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/00061101-Alternate-Heel-Touchers_waist-FIX_small_thumbnail@3x.jpg"
+  },
+  {
+    "id": "150E076B",
+    "title": "High Knees",
+    "type": "reps_only",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/30911201-High-Knee-Skips-(male)_Cardio-FIX_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "C9CCB878",
+    "title": "High Knee Skips",
+    "type": "reps_only",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/30911201-High-Knee-Skips-(male)_Cardio-FIX_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "023947AB",
+    "title": "HIIT",
+    "type": "duration",
+    "primary_muscle_group": "cardio",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/51681201-Double-Under-Jump-Rope-(male)_Cardio_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "1C34A172",
+    "title": "Hiking",
+    "type": "distance_duration",
+    "primary_muscle_group": "cardio",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/22581201-Walking_Cardio-FIX_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "92B8C7E1",
+    "title": "Hip Thrust",
+    "type": "reps_only",
+    "primary_muscle_group": "glutes",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "quadriceps"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/80151201-Glute-Bridge-from-Bench-(male)_Hips_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "970ADF87",
+    "title": "Hollow Rock",
+    "type": "duration",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/56491201-Hollow-Rock-(male)_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "39C99849",
+    "title": "Incline Push Ups",
+    "type": "reps_only",
+    "primary_muscle_group": "chest",
+    "secondary_muscle_groups": [
+      "shoulders",
+      "triceps"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/37851201-Incline-Push-Up-(on-box)_thumbnail@3x.jpg"
+  },
+  {
+    "id": "32B0B590",
+    "title": "Jackknife Sit Up",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/107121201-Jack-knife-Sit-up-(male)_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "991833C2",
+    "title": "Jumping Jack",
+    "type": "reps_only",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/30941201-Jumping-Jack-(male)_Cardio_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "5CC07A1F",
+    "title": "Jumping Lunge",
+    "type": "reps_only",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "glutes",
+      "calves"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/11661201-Jump-Split-m_Plyometrics_thumbnail@3x.jpg"
+  },
+  {
+    "id": "040BA2E3",
+    "title": "Jump Rope",
+    "type": "duration",
+    "primary_muscle_group": "cardio",
+    "secondary_muscle_groups": [],
+    "equipment": "other",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/26121201-Jump-Rope-(male)_Cardio_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "70D4EBBF",
+    "title": "Jump Squat",
+    "type": "reps_only",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "glutes",
+      "calves"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/05141201-Jump-Squat_Thighs_thumbnail@3x.jpg"
+  },
+  {
+    "id": "B74A95BB",
+    "title": "Kneeling Push Up",
+    "type": "reps_only",
+    "primary_muscle_group": "chest",
+    "secondary_muscle_groups": [
+      "triceps",
+      "shoulders"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/32111101-Kneeling-Push-up-(male)_small_thumbnail@3x.jpg"
+  },
+  {
+    "id": "07EBC4DC",
+    "title": "Lateral Box Jump",
+    "type": "reps_only",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "glutes",
+      "calves"
+    ],
+    "equipment": "other",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/108271201-Lateral-Box-Jump-(male)_Plyometrics_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "DC59D143",
+    "title": "Lateral Leg Raises",
+    "type": "reps_only",
+    "primary_muscle_group": "glutes",
+    "secondary_muscle_groups": [
+      "abductors"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/84191201-Sideway-Leg-Lift-with-a-Chair-(male)_Hips_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "F2A37357",
+    "title": "Lateral Lunge",
+    "type": "reps_only",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "glutes",
+      "abductors"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/29721201-Side-Lunge_Thighs_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "D731CCA8",
+    "title": "Lateral Squat",
+    "type": "reps_only",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "glutes",
+      "abductors"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/69241201-Side-Step-Deep-Squat-(male)_Plyometrics_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "6D54A050",
+    "title": "L-Sit Hold",
+    "type": "duration",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [
+      "triceps"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/107951201-L-Sit-(male)_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "5E1A7777",
+    "title": "Lunge",
+    "type": "reps_only",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "glutes"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/14601201-Walking-Lunge-Male_Hips_thumbnail@3x.jpg"
+  },
+  {
+    "id": "BD5935CF",
+    "title": "Lying Knee Raise",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/81941201-Lying-Knee-Raise-(male)_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "09C9F635",
+    "title": "Lying Leg Raise",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/11631201-Lying-Leg-Raise_Waist_thumbnail@3x.jpg"
+  },
+  {
+    "id": "22FEDCA4",
+    "title": "Lying Neck Curls",
+    "type": "reps_only",
+    "primary_muscle_group": "neck",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/101661201-Lying-Neck-Flexion_Neck_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "0910BD28",
+    "title": "Lying Neck Extension",
+    "type": "reps_only",
+    "primary_muscle_group": "neck",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/101671201-Lying-Neck-Extension_Neck_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "F49E31D6",
+    "title": "Mountain Climber",
+    "type": "reps_only",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/06301201-Mountain-Climber_Cardio-FIX_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "F60BDDF8",
+    "title": "Negative Pull Up",
+    "type": "bodyweight_weighted",
+    "primary_muscle_group": "lats",
+    "secondary_muscle_groups": [
+      "upper_back",
+      "biceps",
+      "forearms"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/73851201-Pull-up-(negative)-(male)_Back_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "108D7A14",
+    "title": "Nordic Hamstrings Curls",
+    "type": "reps_only",
+    "primary_muscle_group": "hamstrings",
+    "secondary_muscle_groups": [
+      "glutes"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/77461201-Nordic-Hamstring-Curl-(male)_Thighs_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "DBE341AA",
+    "title": "Oblique Crunch",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/06351201-Oblique-Crunches-Floor_Waist_thumbnail@3x.jpg"
+  },
+  {
+    "id": "B140095E",
+    "title": "One Arm Push Up",
+    "type": "reps_only",
+    "primary_muscle_group": "chest",
+    "secondary_muscle_groups": [
+      "shoulders",
+      "triceps"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/07251201-Single-Arm-Push-up_Chest_thumbnail@3x.jpg"
+  },
+  {
+    "id": "0EFE8162",
+    "title": "Pike Pushup",
+    "type": "reps_only",
+    "primary_muscle_group": "shoulders",
+    "secondary_muscle_groups": [
+      "triceps",
+      "chest"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/29211101-Pike-Push-up_Chest_small_thumbnail@3x.jpg"
+  },
+  {
+    "id": "EC2510CD",
+    "title": "Pilates",
+    "type": "duration",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/05071201-Jackknife-Sit-Up_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "3FF6A22E",
+    "title": "Pistol Squat",
+    "type": "reps_only",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "glutes"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/17591101-Single-Leg-Squat-(pistol)-male_Thighs_small_thumbnail@3x.jpg"
+  },
+  {
+    "id": "C6C9B8A0",
+    "title": "Plank",
+    "type": "duration",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/04631201-Front-Plank-m_waist_thumbnail@3x.jpg"
+  },
+  {
+    "id": "31436F5D",
+    "title": "Plank Pushup",
+    "type": "reps_only",
+    "primary_muscle_group": "chest",
+    "secondary_muscle_groups": [
+      "shoulders",
+      "triceps",
+      "abdominals"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/29781201-Elbow-Up-and-Down-Dynamic-Plank_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "392887AA",
+    "title": "Push Up",
+    "type": "reps_only",
+    "primary_muscle_group": "chest",
+    "secondary_muscle_groups": [
+      "triceps",
+      "shoulders"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/06621201-Push-up-m_Chest_thumbnail@3x.jpg"
+  },
+  {
+    "id": "947DAC23",
+    "title": "Push Up - Close Grip",
+    "type": "reps_only",
+    "primary_muscle_group": "chest",
+    "secondary_muscle_groups": [
+      "triceps",
+      "shoulders"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/02591201-Close-Grip-Push-up_Upper-Arms_thumbnail@3x.jpg"
+  },
+  {
+    "id": "19372ABC",
+    "title": "Push Up (Weighted)",
+    "type": "bodyweight_weighted",
+    "primary_muscle_group": "chest",
+    "secondary_muscle_groups": [
+      "triceps",
+      "shoulders"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/11721201-Assisted-Weighted-Push-up_Chest_thumbnail@3x.jpg"
+  },
+  {
+    "id": "7952B5CD",
+    "title": "Reverse Crunch",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/08721201-Reverse-Crunch-m_waist_thumbnail@3x.jpg"
+  },
+  {
+    "id": "C284D923",
+    "title": "Reverse Lunge",
+    "type": "reps_only",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "glutes"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/15811201-Bodyweight-Rear-Lunge_Thighs_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "99B49684",
+    "title": "Reverse Plank",
+    "type": "duration",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [
+      "triceps"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/08671201-Reverse-plank_Back_thumbnail@3x.jpg"
+  },
+  {
+    "id": "51A0EDAA",
+    "title": "Ring Dips",
+    "type": "reps_only",
+    "primary_muscle_group": "chest",
+    "secondary_muscle_groups": [
+      "shoulders",
+      "triceps"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/06771201-Ring-Dip_Upper-Arms_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "5F09F0FC",
+    "title": "Ring Pull Up",
+    "type": "reps_only",
+    "primary_muscle_group": "lats",
+    "secondary_muscle_groups": [
+      "upper_back",
+      "biceps",
+      "forearms"
+    ],
+    "equipment": "other",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/55221201-Ring-Pull-Up_Back_1_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "AEA56BDC",
+    "title": "Ring Push Up",
+    "type": "reps_only",
+    "primary_muscle_group": "chest",
+    "secondary_muscle_groups": [
+      "shoulders",
+      "triceps"
+    ],
+    "equipment": "other",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/08061201-Suspended-Push-Up_Chest_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "AC1BB830",
+    "title": "Running",
+    "type": "distance_duration",
+    "primary_muscle_group": "cardio",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/52301201-Long-Distance-Running_Cardio_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "BB83BDDE",
+    "title": "Russian Twist (Bodyweight)",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/06871201-Russian-Twist_waist_thumbnail@3x.jpg"
+  },
+  {
+    "id": "C7AE420A",
+    "title": "Scapular Pull Ups",
+    "type": "reps_only",
+    "primary_muscle_group": "upper_back",
+    "secondary_muscle_groups": [
+      "lats",
+      "forearms"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/06881201-Scapular-Pull-Up_Back_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "502FCE31",
+    "title": "Shoulder Taps",
+    "type": "reps_only",
+    "primary_muscle_group": "shoulders",
+    "secondary_muscle_groups": [
+      "chest",
+      "triceps"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/06991201-Shoulder-Tap-Push-up_Plyometrics_thumbnail@3x.jpg"
+  },
+  {
+    "id": "37F9EDA7",
+    "title": "Side Bend",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/00021201-45-Side-Bend_Waist_thumbnail@3x.jpg"
+  },
+  {
+    "id": "E3EDA509",
+    "title": "Side Plank",
+    "type": "duration",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/07151201-Side-Plank-m_Waist_thumbnail@3x.jpg"
+  },
+  {
+    "id": "CBC0D834",
+    "title": "Single Leg Glute Bridge",
+    "type": "reps_only",
+    "primary_muscle_group": "glutes",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "quadriceps"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/60001201-Single-Leg-Bridge-with-Outstretched-Leg-(left)-(ma_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "487B3755",
+    "title": "Single Leg Hip Thrust",
+    "type": "reps_only",
+    "primary_muscle_group": "glutes",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "quadriceps"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/20711101-Single-Leg_Hip-Thrusts_Hips_small_thumbnail@3x.jpg"
+  },
+  {
+    "id": "238BA231",
+    "title": "Single Leg Standing Calf Raise",
+    "type": "reps_only",
+    "primary_muscle_group": "calves",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/50521201-Single-Leg-Calf-Raise-Off-Step_Calves_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "F5DEF1EB",
+    "title": "Sissy Squat (Weighted)",
+    "type": "weight_reps",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/08511201-Weighted-Sissy-Squat_Thighs_thumbnail@3x.jpg"
+  },
+  {
+    "id": "022DF610",
+    "title": "Sit Up",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/00011201-3-4-Sit-up_Waist_thumbnail@3x.jpg"
+  },
+  {
+    "id": "9237BA12",
+    "title": "Sit Up (Weighted)",
+    "type": "bodyweight_weighted",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/47561201-Dumbbell-Sit-up_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "24A809EF",
+    "title": "Skating",
+    "type": "duration",
+    "primary_muscle_group": "cardio",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/109801201-Inline-Skating-(male)_Plyometrics_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "84325755",
+    "title": "Skiing",
+    "type": "duration",
+    "primary_muscle_group": "cardio",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/55391201-Ski-Runners-(male)_Plyometrics_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "7D1BD41D",
+    "title": "Sled Pull",
+    "type": "short_distance_weight",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "other",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/99391201-Power-Sled-Pull-(male)_Back_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "7757171F",
+    "title": "Sled Push",
+    "type": "distance_duration",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "other",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/44281201-Power-Sled-Push-(male)_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "911A58D3",
+    "title": "Snowboarding",
+    "type": "duration",
+    "primary_muscle_group": "cardio",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": null
+  },
+  {
+    "id": "C10A5AC9",
+    "title": "Spiderman",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/48791201-Spiderman-Plank_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "9283BABA",
+    "title": "Sprints",
+    "type": "distance_duration",
+    "primary_muscle_group": "cardio",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/52161201-Sprint_Cardio_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "9694DA61",
+    "title": "Squat (Bodyweight)",
+    "type": "reps_only",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "glutes"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/11971201-Squat-m_Thighs_thumbnail@3x.jpg"
+  },
+  {
+    "id": "06745E58",
+    "title": "Standing Calf Raise",
+    "type": "reps_only",
+    "primary_muscle_group": "calves",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/13731201-Bodyweight-Standing-Calf-Raise_Calves_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "128A2381",
+    "title": "Step Up",
+    "type": "reps_only",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "glutes"
+    ],
+    "equipment": "other",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/94901201-Step-Up-on-Box_Thighs_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "527DA061",
+    "title": "Stretching",
+    "type": "duration",
+    "primary_muscle_group": "other",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/73811201-Seated-Single-Leg-Hamstring-Stretch-(male)_Thighs_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "3F5F8D40",
+    "title": "Sumo Squat",
+    "type": "reps_only",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [
+      "glutes",
+      "adductors",
+      "hamstrings"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/10641201-Sumo-Squat-(male)_Thighs-FIX__thumbnail_@3x.jpg"
+  },
+  {
+    "id": "218DA87C",
+    "title": "Superman",
+    "type": "reps_only",
+    "primary_muscle_group": "lower_back",
+    "secondary_muscle_groups": [
+      "glutes",
+      "hamstrings"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/68861201-Superman-Hold-(male)_Hips_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "B60A678F",
+    "title": "Swimming",
+    "type": "distance_duration",
+    "primary_muscle_group": "cardio",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/69441201-Swimming-Crawl-Style-(male)_Plyometrics_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "B94E35E1",
+    "title": "Toes to Bar",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [
+      "forearms"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/04741201-Hanging-Straight-Leg-Hip-Raise_Waist_thumbnail@3x.jpg"
+  },
+  {
+    "id": "75BAC5C3",
+    "title": "Toe Touch",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/52751201-Lying-Toe-Touch_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "6BE68B62",
+    "title": "V Up",
+    "type": "reps_only",
+    "primary_muscle_group": "abdominals",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/05071201-Jackknife-Sit-Up_Waist_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "33EDD7DB",
+    "title": "Walking",
+    "type": "distance_duration",
+    "primary_muscle_group": "cardio",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/22581201-Walking_Cardio-FIX_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "32HKJ34K",
+    "title": "Walking Lunge",
+    "type": "reps_only",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [
+      "glutes",
+      "hamstrings"
+    ],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/14601201-Walking-Lunge-Male_Hips_thumbnail@3x.jpg"
+  },
+  {
+    "id": "F30A4F01",
+    "title": "Walking Lunge (Sandbag)",
+    "type": "short_distance_weight",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [
+      "hamstrings",
+      "glutes"
+    ],
+    "equipment": "other",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/113141201-Weighted-Sandbag-Walking-Lunge-(male)_Thighs_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "A1F47ACC",
+    "title": "Wall Ball",
+    "type": "weight_reps",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "other",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/51611201-Medicine-Ball-Throw-Squat-with-Wall_Shoulders_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "C8706C80",
+    "title": "Wall Sit",
+    "type": "duration",
+    "primary_muscle_group": "quadriceps",
+    "secondary_muscle_groups": [
+      "abdominals"
+    ],
+    "equipment": "other",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/07341201-Sit-(wall)_Thighs_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "79EF4E4F",
+    "title": "Warm Up",
+    "type": "duration",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/98311201-Standing-Alternating-Arms-Swing-(male)_Stretching_thumbnail_@3x.jpg"
+  },
+  {
+    "id": "8C9D2928",
+    "title": "Yoga",
+    "type": "duration",
+    "primary_muscle_group": "full_body",
+    "secondary_muscle_groups": [],
+    "equipment": "none",
+    "is_custom": false,
+    "thumbnail_url": "https://pump-app.s3.eu-west-2.amazonaws.com/exercise-thumbnails/48671201-Butterfly-Yoga-Flaps_Hips_thumbnail_@3x.jpg"
+  }
+]

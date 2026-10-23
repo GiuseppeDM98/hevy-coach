@@ -1,0 +1,194 @@
+{
+  "page": 1,
+  "page_count": 18,
+  "workouts": [
+    {
+      "id": "11111111-1111-4111-8111-111111111111",
+      "title": "Push",
+      "routine_id": null,
+      "description": "",
+      "start_time": "2026-10-22T17:31:47+00:00",
+      "end_time": "2026-10-22T17:52:37+00:00",
+      "updated_at": "2026-10-22T17:52:49.853Z",
+      "created_at": "2026-10-22T17:52:49.853Z",
+      "exercises": [
+        {
+          "index": 0,
+          "title": "Push Up",
+          "notes": null,
+          "exercise_template_id": "392887AA",
+          "superset_id": null,
+          "sets": [
+            {
+              "index": 0,
+              "type": "warmup",
+              "weight_kg": null,
+              "reps": 6,
+              "distance_meters": null,
+              "duration_seconds": null,
+              "rpe": null,
+              "custom_metric": null
+            },
+            {
+              "index": 1,
+              "type": "warmup",
+              "weight_kg": null,
+              "reps": 6,
+              "distance_meters": null,
+              "duration_seconds": null,
+              "rpe": null,
+              "custom_metric": null
+            },
+            {
+              "index": 2,
+              "type": "normal",
+              "weight_kg": null,
+              "reps": 6,
+              "distance_meters": null,
+              "duration_seconds": null,
+              "rpe": null,
+              "custom_metric": null
+            },
+            {
+              "index": 3,
+              "type": "normal",
+              "weight_kg": null,
+              "reps": 6,
+              "distance_meters": null,
+              "duration_seconds": null,
+              "rpe": null,
+              "custom_metric": null
+            },
+            {
+              "index": 4,
+              "type": "normal",
+              "weight_kg": null,
+              "reps": 6,
+              "distance_meters": null,
+              "duration_seconds": null,
+              "rpe": null,
+              "custom_metric": null
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "title": "Pike Pushup",
+          "notes": null,
+          "exercise_template_id": "0EFE8162",
+          "superset_id": null,
+          "sets": [
+            {
+              "index": 0,
+              "type": "normal",
+              "weight_kg": null,
+              "reps": 6,
+              "distance_meters": null,
+              "duration_seconds": null,
+              "rpe": null,
+              "custom_metric": null
+            },
+            {
+              "index": 1,
+              "type": "normal",
+              "weight_kg": null,
+              "reps": 6,
+              "distance_meters": null,
+              "duration_seconds": null,
+              "rpe": null,
+              "custom_metric": null
+            },
+            {
+              "index": 2,
+              "type": "normal",
+              "weight_kg": null,
+              "reps": 6,
+              "distance_meters": null,
+              "duration_seconds": null,
+              "rpe": null,
+              "custom_metric": null
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "title": "Bench Dip",
+          "notes": null,
+          "exercise_template_id": "CD6DC8E5",
+          "superset_id": null,
+          "sets": [
+            {
+              "index": 0,
+              "type": "normal",
+              "weight_kg": null,
+              "reps": 8,
+              "distance_meters": null,
+              "duration_seconds": null,
+              "rpe": null,
+              "custom_metric": null
+            },
+            {
+              "index": 1,
+              "type": "normal",
+              "weight_kg": null,
+              "reps": 8,
+              "distance_meters": null,
+              "duration_seconds": null,
+              "rpe": null,
+              "custom_metric": null
+            },
+            {
+              "index": 2,
+              "type": "normal",
+              "weight_kg": null,
+              "reps": 10,
+              "distance_meters": null,
+              "duration_seconds": null,
+              "rpe": null,
+              "custom_metric": null
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "title": "Plank",
+          "notes": null,
+          "exercise_template_id": "C6C9B8A0",
+          "superset_id": null,
+          "sets": [
+            {
+              "index": 0,
+              "type": "normal",
+              "weight_kg": null,
+              "reps": null,
+              "distance_meters": null,
+              "duration_seconds": 29,
+              "rpe": null,
+              "custom_metric": null
+            },
+            {
+              "index": 1,
+              "type": "normal",
+              "weight_kg": null,
+              "reps": null,
+              "distance_meters": null,
+              "duration_seconds": 19,
+              "rpe": null,
+              "custom_metric": null
+            },
+            {
+              "index": 2,
+              "type": "normal",
+              "weight_kg": null,
+              "reps": null,
+              "distance_meters": null,
+              "duration_seconds": 21,
+              "rpe": null,
+              "custom_metric": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

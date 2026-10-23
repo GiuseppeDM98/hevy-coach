@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+next-env.d.ts
+
+# Environment — never commit secrets (DEVELOPMENT_GUIDELINES.md § Security Baseline)
+.env
+.env.*
+!.env.example
+
+# Local database (Turso/libSQL file used in development and tests)
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+
+# Generated service worker (built by @serwist/next)
+public/sw.js
+public/sw.js.map
+
+# Testing
+coverage/
+playwright-report/
+test-results/
+playwright/.auth/
+
+# Misc
+.DS_Store
+*.pem
+*.tsbuildinfo
+
+# Vercel
+.vercel/
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Per-session scratch handoff: written, folded into the durable docs, deleted.
+SESSION_NOTES.md
+
+# impeccable (design skill): keep the briefs and config, drop the per-session logs and captures.
+.impeccable/questions/
+.impeccable/review/
+.impeccable/hook.cache.json
+.impeccable/mocks/
