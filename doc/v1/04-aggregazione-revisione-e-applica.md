@@ -20,8 +20,9 @@
    `claude-opus-5-5`: niente prefill, niente `tool_choice` forzato, output strutturato con
    `client.messages.parse` + `zodOutputFormat` in `output_config.format`, effort in
    `output_config.effort` (default `medium`), `stop_reason: 'refusal'` possibile, `max_tokens`
-   obbligatorio. Prezzo 4 $/M input e 20 $/M output: una revisione da ~15k input e ~2k output costa
-   circa 0,10 $.
+   obbligatorio. Prezzo 4 $/M input e 20 $/M output; l'output fatturato comprende il thinking, che
+   su Opus 5.5 è sempre attivo: ~15k input, ~3k di JSON per 27 slot più il thinking a effort `high`
+   → stima 0,15–0,35 $ a revisione, misurata nel collaudo (§ 7) e annotata in `doc/guide/revisione.md`.
 4. Le proposte vanno applicate a Hevy con `GET` + `PUT` completo della routine (D-29) e i custom
    delle varianti successive non esistono ancora (T-7).
 5. Il cron di Vercel può invocare due volte (06): la revisione ha bisogno di un lock (T-11).
@@ -32,7 +33,7 @@
 |---|---|---|
 | A1 | `aggregateWindow` (C-9) attribuisce ogni set non-warmup della finestra a uno slot (prima per `routine_id`, poi per variante attiva alla data del workout), raggruppa per sessione (workout) e calcola per sessione i valori (ripetizioni o secondi per set), `allAtTop` secondo il target, e per slot `sessionCount`, `hasEnoughData` (≥ 2) e `ruleAction`; i set non attribuibili finiscono in `unresolved` con il conteggio. | `aggregate.test.ts` (§ 6). Mutazione: includere i warmup → i valori cambiano → rosso. |
 | A2 | `ruleAction` (C-12): `next_variant` se le ultime **due** sessioni hanno `allAtTop` e la scala ha una variante successiva; `increase` se `allAtTop` ×2 ma la scala è finita; `keep` altrimenti. `computeNextSlotState` applica `increase` (reps +2/+2, hold +10/+10, max2 +2) o `next_variant` (variante successiva con `targets[kind]`). | `progression.test.ts` con casi tabellari. Mutazione: usare una sola sessione → rosso. |
-| A3 | `runReview` (C-11): sync incrementale, finestra di 28 giorni (D-15), regola dei dati scarsi (D-31), prompt § 4.4, chiamata a Claude con lo schema C-10, validazione (ogni slot eleggibile esattamente una volta, azione ammessa, `next_variant` solo se esiste), un retry su errore di validazione, salvataggio di `reviews` + `proposals`, `superseded` sulle aperte precedenti, lock (T-11). Esiti `completed` / `skipped` (`no_workouts`, `already_running`) / `failed` (con `error`). | `run-review.test.ts` con DB in memoria, client Hevy finto e modello finto. Mutazioni in § 6. |
+| A3 | `runReview` (C-11): sync incrementale, finestra di 28 giorni (D-15), regola dei dati scarsi (D-31), prompt § 4.4, chiamata a Claude con lo schema C-10, validazione (ogni slot eleggibile esattamente una volta, azione ammessa, `next_variant` solo se esiste), un retry su errore di validazione, salvataggio di `reviews` + `proposals`, `superseded` sulle aperte precedenti, lock (T-11), una scadenza unica (`REVIEW_DEADLINE_MS`) da cui escono timeout e retry di ogni chiamata. Esiti `completed` / `skipped` (`no_workouts`, `already_running`) / `failed` (con `error`, anche `model: timeout` e `model: refusal (<categoria>)`). | `run-review.test.ts` con DB in memoria, client Hevy finto e modello finto. Mutazioni in § 6. |
 | A4 | `shouldRunScheduledReview(db, now)`: `true` se `romeDaysBetween(riferimento, now) ≥ 13`, dove il riferimento è `finished_at` dell'ultima revisione `completed`, altrimenti `plan_uploaded_at`; `false` se nessuno dei due esiste. | Test ai bordi (12 → false, 13 → true). |
 | A5 | `applyProposal` (C-13): proposta `open` → nuovo stato (C-12) → `ensureTemplates` per la variante nuova se custom e mancante → `GET` routine → `buildRoutineBody` con gli stati aggiornati → `PUT` → `replaceSlotState` + `proposals.status = 'applied'` + `hevy_routines.snapshot`; `keep` → solo `applied`; proposta non `open` → `{ status: 'not_open' }`; errore Hevy → proposta resta `open`, `apply_error` salvato. `applyAllOpen` applica in sequenza e restituisce un risultato per proposta. | `apply-proposal.test.ts`. Mutazione: aggiornare lo stato prima del PUT e non rollback → il test «PUT fallisce → stato invariato» va rosso. |
 | A6 | Il costo stimato (`estimated_cost_micros`) e i token di ogni revisione sono salvati; una revisione non supera **una** chiamata riuscita (+1 retry). | Test: modello finto conta le chiamate (1; 2 con un errore di validazione; 2 e `failed` con due errori). |
@@ -46,14 +47,19 @@
   (manuale sempre), **D-31** (dati scarsi in codice).
 - **T-8**, **T-9** (`ruleAction` accanto a Claude), **T-10** (parametri della chiamata; **qui si
   precisa**: niente `fallbacks`: un `stop_reason: 'refusal'` o `max_tokens` rende la revisione
-  `failed` con quel codice), **T-11** (lock), **T-16** (prima revisione).
+  `failed` con quel codice, e il rifiuto porta la sua categoria, `model: refusal (bio)`, così la
+  notifica dice perché; owner, 2026-10-23), e il tempo: **una scadenza unica** per `runReview`,
+  dentro i 300 s di Vercel, da cui si calcolano timeout e retry di ogni chiamata (§ 4.4 passo 5;
+  owner, 2026-10-23), **T-11** (lock), **T-16** (prima revisione).
 - Adottate qui, ribaltabili: (a) sessione = workout (un workout con lo stesso esercizio due volte
   conta una sessione con tutti i set); (b) `allAtTop` per `reps`: ogni set `reps ≥ max`; per
   `max2`: ogni set `reps ≥ threshold`; per `hold`: ogni set `duration_seconds ≥ maxSeconds`;
   (c) le sessioni considerate dalla regola sono le ultime due in ordine di data, anche se non
   consecutive nel calendario; (d) un set con `reps` e `duration_seconds` entrambi null è ignorato;
-  (e) la motivazione di Claude è limitata a 240 caratteri (lo schema la tronca? no: `max(240)` nello
-  zod → errore di validazione → retry con l'istruzione); (f) `summary` ≤ 600 caratteri; (g) il
+  (e) la motivazione di Claude è limitata a 240 caratteri e (f) il `summary` a 600: lo chiede il
+  prompt e lo controlla `validateReviewResponse` (errore → retry con l'istruzione), non lo zod
+  dell'output, perché l'output strutturato non applica `minLength`/`maxLength` (l'SDK li toglie
+  dallo schema inviato e li verifica lato client, dove un fallimento non arriva al retry); (g) il
   prompt è in italiano e chiede motivazioni in italiano; (h) la finestra è `[romeDayStartMinusDays(now,
   28), now)`; (i) `reviews.prompt_json` conserva l'input inviato (ripetibilità), `raw_response_json`
   la risposta; (j) il modello e i prezzi stanno in `src/lib/review/pricing.ts` (`MODEL = 'claude-opus-5-5'`,
@@ -177,8 +183,10 @@ import { z } from 'zod';
 export const ProposalActionSchema = z.enum(['keep', 'increase', 'next_variant']);
 export type ProposalAction = z.infer<typeof ProposalActionSchema>;
 export const ReviewResponseSchema = z.object({
-  summary: z.string().max(600),
-  proposals: z.array(z.object({ slotId: z.string(), action: ProposalActionSchema, rationale: z.string().min(1).max(240) })),
+  // Lengths (summary <= 600, rationale 1-240) are checked by validateReviewResponse: structured
+  // outputs do not enforce minLength/maxLength, and a client-side parse failure would skip the retry.
+  summary: z.string(),
+  proposals: z.array(z.object({ slotId: z.string(), action: ProposalActionSchema, rationale: z.string() })),
 });
 export type ReviewResponse = z.infer<typeof ReviewResponseSchema>;
 export type ReviewStatus = 'running' | 'completed' | 'skipped' | 'failed';
@@ -189,41 +197,63 @@ export interface ReviewRun { id: string; status: ReviewStatus; trigger: ReviewTr
 `model.ts` — l'adattatore, l'unico file che importa `@anthropic-ai/sdk`:
 
 ```ts
-export interface ReviewModelResult { output: ReviewResponse | null; stopReason: string; inputTokens: number; outputTokens: number; raw: unknown }
-export interface ReviewModel { complete(system: string, user: string): Promise<ReviewModelResult> }
+export interface ReviewModelResult { output: ReviewResponse | null; stopReason: string; refusalCategory: string | null; inputTokens: number; outputTokens: number; raw: unknown }
+export interface ReviewCallOptions { timeoutMs: number; maxRetries: number }
+export interface ReviewModel { complete(system: string, user: string, options: ReviewCallOptions): Promise<ReviewModelResult> }
+export type ReviewEffort = 'medium' | 'high';
 
-export function createAnthropicReviewModel(apiKey: string): ReviewModel {
-  const client = new Anthropic({ apiKey, timeout: 240_000, maxRetries: 2 });
+export function createAnthropicReviewModel(apiKey: string, { effort = 'high' }: { effort?: ReviewEffort } = {}): ReviewModel {
+  const client = new Anthropic({ apiKey });
   return {
-    async complete(system, user) {
-      const response = await client.messages.parse({
-        model: MODEL,
-        max_tokens: 8000,
-        system,
-        messages: [{ role: 'user', content: user }],
-        output_config: { effort: 'high', format: zodOutputFormat(ReviewResponseSchema) },
-      });
-      return { output: response.parsed_output ?? null, stopReason: response.stop_reason ?? 'unknown', inputTokens: response.usage.input_tokens, outputTokens: response.usage.output_tokens, raw: response };
+    async complete(system, user, { timeoutMs, maxRetries }) {
+      try {
+        // timeout and retries per request: runReview computes them from what is left of its deadline.
+        const response = await client.messages.parse({
+          model: MODEL,
+          max_tokens: 16000, // thinking is always on and counts toward it: ~3k of JSON plus the thinking at effort high
+          system,
+          messages: [{ role: 'user', content: user }],
+          output_config: { effort, format: zodOutputFormat(ReviewResponseSchema) },
+        }, { timeout: timeoutMs, maxRetries });
+        return {
+          output: response.parsed_output ?? null,
+          stopReason: response.stop_reason ?? 'unknown',
+          refusalCategory: response.stop_details?.category ?? null, // e.g. 'bio': the notification says why
+          inputTokens: response.usage.input_tokens,
+          outputTokens: response.usage.output_tokens,
+          raw: response,
+        };
+      } catch (error) {
+        if (error instanceof Anthropic.APIConnectionTimeoutError) {
+          return { output: null, stopReason: 'timeout', refusalCategory: null, inputTokens: 0, outputTokens: 0, raw: null };
+        }
+        throw error;
+      }
     },
   };
 }
 ```
+
+Due verifiche all'inizio della sessione, contro l'SDK installato: il nome della classe d'errore del timeout (`Anthropic.APIConnectionTimeoutError` nell'SDK TypeScript) e il campo `stop_details.category` sul tipo della risposta. Se l'SDK non lo tipizza, lo si legge dalla risposta grezza con un cast stretto, commentato.
 
 `prompt.ts` — `buildSystemPrompt(): string` e `buildUserPrompt(input: ReviewPromptInput): string`.
 Il **system prompt** (italiano, fisso, testo intero nel file):
 
 > Sei il coach di un allenamento a corpo libero in casa. Ricevi, per ogni esercizio del piano, le
 > sessioni delle ultime 4 settimane, la variante corrente, il target e la posizione nella scala di
-> varianti, più l'esito della revisione precedente. Per OGNI esercizio elencato proponi una sola
+> varianti, più l'esito della revisione precedente. Per ogni esercizio elencato proponi una sola
 > azione: `keep` (mantieni), `increase` (alza il target: +2 ripetizioni, +10 secondi, o +2 sulla
 > soglia max-2) o `next_variant` (passa alla variante successiva della scala, se esiste). Regola di
 > base: doppia progressione — tutte le serie chiuse al massimo del target per due sessioni → variante
 > successiva; se la scala è finita, `increase`. Puoi scostarti dalla regola (per esempio `increase`
 > invece di `next_variant` quando il salto è grande, o `keep` dopo un calo) ma devi dirlo nella
-> motivazione. Vincoli assoluti: proponi solo azioni fra le tre; `next_variant` solo dove
-> `nextVariant` non è null; non inventare esercizi; ogni `slotId` dell'input compare una volta
-> sola. Motivazioni in italiano, massimo 240 caratteri, concrete (cita i numeri). `summary`: 2–4
-> frasi sull'andamento generale.
+> motivazione. Vincoli: proponi solo azioni fra le tre; `next_variant` solo dove
+> `nextVariant` non è null; non inventare esercizi; ogni `slotId` di `exercises` compare una volta
+> sola in `proposals`. Motivazioni in italiano, massimo 240 caratteri, concrete (cita i numeri).
+> `summary`: 2–4 frasi sull'andamento generale. Nell'input, `ruleAction` è la regola calcolata dal
+> codice: un suggerimento, non un vincolo; `values` sono le ripetizioni di ogni serie (i secondi per
+> le tenute); `previousReview` dice che cosa è stato proposto l'ultima volta e se è stato applicato;
+> gli slot di `skippedForInsufficientData` sono solo contesto e non vanno in `proposals`.
 
 Lo **user prompt** è JSON (stringificato con indentazione 0) con: `window { from, to }`,
 `exercises[]` per ogni slot eleggibile (`slotId`, `routine`, `exercise` (titolo variante),
@@ -235,8 +265,15 @@ per contesto: **non** da proporre). Niente dati personali: nessun nome, nessun i
 `run-review.ts` (C-11):
 
 ```ts
-export async function runReview({ db, hevy, model, now, trigger }: { db: Db; hevy: HevyClient; model: ReviewModel; now: number; trigger: ReviewTrigger }): Promise<ReviewRun>
+export const REVIEW_DEADLINE_MS = 280_000; // 300 s of Vercel's maxDuration, minus the save and the notification
+export const MIN_MODEL_CALL_MS = 60_000;   // below this a call is not started: it would be killed mid-way
+export async function runReview({ db, hevy, model, now, clock, trigger }: { db: Db; hevy: HevyClient; model: ReviewModel; now: number; clock: () => number; trigger: ReviewTrigger }): Promise<ReviewRun>
 ```
+
+`now` è l'istante d'inizio della richiesta (il cron e la route lo prendono prima del loro sync), e
+la **scadenza unica** della revisione è `deadline = now + REVIEW_DEADLINE_MS`. `clock` dice quanto
+tempo è passato: le route e la CLI passano `Date.now`, i test un orologio finto. Non è una
+lettura dell'orologio in un modulo puro: `run-review.ts` è un caso d'uso.
 
 Passi, nell'ordine (ognuno con il suo test):
 1. **Lock**: se esiste una `reviews` con `status='running'` e `started_at > now − 10 min` →
@@ -249,16 +286,25 @@ Passi, nell'ordine (ognuno con il suo test):
    proposte `keep` con `rationale = 'Dati insufficienti: meno di 2 sessioni nelle ultime 4
    settimane.'`, `insufficient_data = true`, senza passare da Claude. Se `eligible` è vuoto → tutte
    le proposte sono «dati insufficienti», `completed` senza chiamata al modello.
-5. **Chiamata**: `model.complete(system, user)`; `stopReason` ≠ `end_turn` o `output` null →
-   `failed` (`error = 'model: ' + stopReason`); altrimenti **validazione** (`validateReviewResponse(output,
-   eligible)`: insieme degli `slotId` uguale, azioni ammesse, `next_variant` solo con successore);
+5. **Chiamata**, dentro la scadenza: `remaining = deadline − clock()`; se `remaining <
+   MIN_MODEL_CALL_MS` → `failed` (`error = 'model: timeout'`), senza chiamata. Altrimenti
+   `maxRetries = remaining ≥ 2 × MIN_MODEL_CALL_MS ? 1 : 0` e `timeoutMs = floor(remaining / (1 +
+   maxRetries))`, così nemmeno i retry di rete dell'SDK superano la scadenza; poi
+   `model.complete(system, user, { timeoutMs, maxRetries })`. `stopReason: 'timeout'` → `failed`
+   (`error = 'model: timeout'`); `refusal` → `failed` (`error = 'model: refusal (' +
+   refusalCategory + ')'`, oppure `'model: refusal'` senza categoria); un altro `stopReason` ≠
+   `end_turn` o `output` null → `failed` (`error = 'model: ' + stopReason`); un'eccezione del
+   modello → `failed` (`error = 'model: ' + message`), mai una riga lasciata `running`. Altrimenti
+   **validazione** (`validateReviewResponse(output,
+   eligible)`: insieme degli `slotId` uguale, azioni ammesse, `next_variant` solo con successore,
+   `rationale` di 1–240 caratteri, `summary` ≤ 600);
    su errore di validazione **un** secondo tentativo con lo user prompt più la riga
-   `"validationErrors": [...]`; secondo errore → `failed` (`error = 'validation: ...'`).
+   `"validationErrors": [...]`, con le stesse regole di tempo, **solo** se `deadline − clock() ≥
+   MIN_MODEL_CALL_MS`; senza margine, o al secondo errore → `failed` (`error = 'validation: ...'`).
 6. **Salvataggio** in un batch: `proposals` (una per slot eleggibile + quelle di dati scarsi) con
    `from/to` calcolati da `computeNextSlotState`, `status='open'`; `UPDATE proposals SET
    status='superseded' WHERE status='open' AND review_id != this`; `reviews` → `completed`, token,
-   costo (`Math.round(input × 4 + output × 20)` micro-dollari per token… formula:
-   `(inputTokens * 4 + outputTokens * 20) / 1_000_000 * 1_000_000` → `inputTokens * 4 + outputTokens * 20`
+   costo (`estimated_cost_micros = inputTokens * 4 + outputTokens * 20`: token × $/MTok =
    micro-USD), `summary`, `prompt_json`, `raw_response_json`, `finished_at`.
 7. Ritorna `ReviewRun`.
 
@@ -293,6 +339,11 @@ qualunque punto prima del batch lascia DB e proposta invariati, salva `apply_err
   Prima di ogni PUT stampa il diff degli esercizi che cambiano (titolo, da → a) e chiede conferma
   con `readline` (`y/N`), perché D-3 vale anche da CLI.
 - `review-show.ts` (`pnpm review:show`): l'ultima revisione con le proposte e il loro stato.
+- `review-compare.ts` (`pnpm review:compare -- --effort medium`): rimanda il `prompt_json`
+  dell'ultima revisione `completed` a `createAnthropicReviewModel(key, { effort })` e stampa,
+  accanto a quelli salvati, validazione, proposte che cambiano azione, token, costo e durata.
+  **Non scrive nulla** (nessuna riga, nessuna proposta). Serve al collaudo C2 per decidere l'effort
+  con un dato.
 
 `EnvSchema` aggiunge `ANTHROPIC_API_KEY: z.string().min(1)`; `.env.example` idem (chiave della
 Console personale, D-2).
@@ -320,8 +371,8 @@ Console personale, D-2).
 |---|---|---|
 | Unit | `aggregate.test.ts`: fixture inline (righe `SetRow` inventate: 3 workout del `mon_upper_a` con push-up 4×[14,15,15,15] / [15,15,15,15] / [16,16,15,15], rematore 8–12 con [12,12,12,11]…): attribuzione per `routine_id`; `hollow_hold` condiviso → attribuito per routine; workout senza `routine_id` e variante univoca → attribuito; variante condivisa senza routine → `unresolved`; warmup esclusi; set con valori null esclusi; storia: un set datato prima di un cambio variante va alla variante vecchia; `hasEnoughData` false con 1 sessione. | Togliere il filtro sui warmup; usare lo stato corrente invece della storia. |
 | Unit | `progression.test.ts`: `ruleAction` (0/1/2 sessioni, allAtTop misto, scala finita → `increase`); `increaseTarget` per i tre generi; `computeNextSlotState` `next_variant` su `push_up` → `decline_push_up` con `max2 12`; su `wall_sit_one_leg` (ultima) → throw. | Soglia a una sessione → rosso. |
-| Unit | `validate.test.ts`: slot mancante, slot in più, slot doppio, azione sconosciuta, `next_variant` senza successore → errori con il `slotId`. | — |
-| Unit + DB | `run-review.test.ts`: (1) lock: riga `running` fresca → `already_running`, nessuna chiamata; (2) `no_workouts`; (3) percorso completo con modello finto che risponde bene → `completed`, N proposte, costo = `in×4 + out×20`, precedenti `superseded`; (4) risposta con slot mancante poi buona → 2 chiamate, `completed`; (5) due risposte cattive → `failed`, 2 chiamate; (6) `stop_reason: 'refusal'` → `failed`; (7) slot con 1 sessione → proposta `keep` con `insufficient_data`, non inviato al modello (il prompt catturato non lo contiene in `exercises`). | Non marcare `superseded` → (3) rosso; retry infinito → (5) rosso. |
+| Unit | `validate.test.ts`: slot mancante, slot in più, slot doppio, azione sconosciuta, `next_variant` senza successore, motivazione vuota o di 241 caratteri, `summary` di 601 → errori con il `slotId`. | Togliere il controllo delle lunghezze → il caso dei 241 caratteri va rosso. |
+| Unit + DB | `run-review.test.ts`: (1) lock: riga `running` fresca → `already_running`, nessuna chiamata; (2) `no_workouts`; (3) percorso completo con modello finto che risponde bene → `completed`, N proposte, costo = `in×4 + out×20`, precedenti `superseded`; (4) risposta con slot mancante poi buona → 2 chiamate, `completed`; (5) due risposte cattive → `failed`, 2 chiamate; (6) `stop_reason: 'refusal'` con categoria `bio` → `failed`, `error = 'model: refusal (bio)'`; (7) slot con 1 sessione → proposta `keep` con `insufficient_data`, non inviato al modello (il prompt catturato non lo contiene in `exercises`); (8) orologio finto già oltre `deadline − MIN_MODEL_CALL_MS` → `failed`, `model: timeout`, nessuna chiamata; (9) prima risposta non valida e orologio che, dopo la chiamata, lascia meno di `MIN_MODEL_CALL_MS` → `failed` con `validation:`, 1 chiamata sola; (10) `timeoutMs` e `maxRetries` passati al modello calcolati dal tempo che resta (con 250 s → 1 retry e 125 s; con 100 s → 0 retry e 100 s); (11) il modello lancia → `failed`, la riga non resta `running`. | Non marcare `superseded` → (3) rosso; retry infinito → (5) rosso; ignorare la scadenza prima del retry → (9) rosso. |
 | Unit + DB | `should-run.test.ts`: nessun riferimento → false; `plan_uploaded_at` 12 giorni fa → false; 13 → true; ultima `completed` 13 giorni fa → true; ultima `failed` 13 giorni fa ma `completed` 5 giorni fa → false. | Usare `started_at` di qualunque stato → l'ultimo caso va rosso. |
 | Unit + DB | `apply-proposal.test.ts`: `keep` → `applied` senza chiamate Hevy; `next_variant` su custom mancante → 1 `createCustomExercise` + GET + PUT, stato e storia aggiornati, `hevy_routines.snapshot` nuovo; PUT che fallisce (500×2) → `failed`, stato invariato, `apply_error`; proposta `applied` → `not_open`; `applyAllOpen` con 3 aperte (keep, increase, next) → 3 risultati nell'ordine. | Scrivere lo stato prima del PUT → rosso. |
 
@@ -329,11 +380,16 @@ Console personale, D-2).
 
 - **A — Invarianza**: cancelli verdi; `pnpm hevy:sync` ancora incrementale.
 - **C — Comportamento nuovo (senza effetti esterni oltre a Claude)**: `pnpm review:run`. **Una
-  chiamata reale ad Anthropic** (costo atteso < 0,20 $, letto dalla riga `estimated_cost` stampata);
+  chiamata reale ad Anthropic** (costo atteso < 0,40 $, letto dalla riga `estimated_cost` stampata);
   **sole GET** verso Hevy. Esito atteso: `completed`; una proposta per slot in revisione (27), molte
   «dati insufficienti» se il piano è iniziato da meno di due settimane; le altre con motivazione in
   italiano ≤ 240 caratteri; `ruleAction` e `action` concordi dove i dati sono chiari. Se è
   `failed`, l'errore è leggibile e la riga `reviews` lo conserva.
+- **C2 — Effort `medium` a confronto (dopo l'OK, ≈ 0,20 $)**: `pnpm review:compare -- --effort
+  medium` sullo stesso input di C. **Una chiamata reale ad Anthropic**, nessuna scrittura. Esito
+  atteso: risposta valida; si leggono, accanto a quelli di C, le proposte che cambiano azione, i
+  token di output, il costo e la durata. Il confronto si annota in `doc/guide/revisione.md` con la
+  data. L'effort resta `high` (D-14) finché l'owner non decide altrimenti su quel dato.
 - **D — Scrittura reale su Hevy (dopo l'OK)**: `pnpm review:apply -- <id di una proposta
   'increase' o 'next_variant'>`; conferma `y`. Esito atteso: 1 GET + 1 PUT; su Hevy la routine
   mostra il nuovo range/variante; `slot_state` e `slot_state_history` aggiornati (la vecchia riga

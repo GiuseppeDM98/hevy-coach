@@ -27,14 +27,11 @@ sees in **README.md**; the v1 plan in **`doc/v1/`** (index `00-INDICE.md`).
   TypeScript 7, pnpm 11, Turso + Drizzle (`@libsql/client`), zod 4, Biome, Vitest, Playwright,
   Serwist (PWA), `web-push`, `@anthropic-ai/sdk` with `claude-opus-5-5`, Recharts, Tailwind 4.
   Vercel Hobby in `dub1`, Turso in `aws-eu-west-1`. Versions pinned in `doc/v1/00-INDICE.md` T-2.
-- **Latest (2026-10-23)**: planning session. The v1 series is written: eight specs in `doc/v1/`
-  (01 scaffold + Hevy client · 02 plan, variant scales and routine upload · 03 Turso + sync · 04
-  aggregation, Claude review, apply from CLI · 05a app: auth, shell, design, Progressi · 05b app:
-  reviews and proposals · 06 deploy: Vercel, Turso, cron, webhook · 07 PWA + Web Push), 35 owner
-  decisions and 22 planner choices in the index, sanitised Hevy fixtures in `tests/fixtures/hevy/`.
-  The owner's Hevy account was read (GET only) on 2026-10-23: 464 templates, 174 workouts, no routine.
+- **Latest (2026-10-23)**: planning session — the v1 series is written (`doc/v1/`, order and state
+  in `00-INDICE.md` § 5), sanitised Hevy fixtures in `tests/fixtures/hevy/`; the same day's check-up
+  gave spec 04 one deadline per review and the refusal's category.
   **Next**: the adversarial reading of the whole series (`claude-config/prompts/07_LETTURA_ADVERSARIALE_SPEC.md`),
-  then `PROMPT-RITIRO.md` (prompt 08), then spec 01. Still open: none.
+  then `PROMPT-RITIRO.md` (prompt 08, in a session of its own), then spec 01. Still open: none.
 
 ## Architecture Snapshot (as specified; nothing exists yet)
 - `src/app` (routes, route handlers, Server Actions: thin) → `src/lib/{review,sync,apply,plan}` (use
@@ -69,8 +66,8 @@ Playwright project for the service worker (07). Commands: WORKFLOW.md § 3.
 
 ## Data & Integrations
 Hevy public API (`api-key` header, Pro account, OpenAPI 0.0.1 read 2026-10-23; limits in AGENTS.md §
-Hevy) · Anthropic Messages API (`claude-opus-5-5`, ~0.10 USD per review) · Turso · Vercel Hobby ·
-Web Push (VAPID).
+Hevy) · Anthropic Messages API (`claude-opus-5-5`, tokens and cost recorded per review) · Turso ·
+Vercel Hobby · Web Push (VAPID).
 
 ## Known Issues (Active)
 None: no code yet.
@@ -90,7 +87,8 @@ None: no code yet.
 - Charts beyond the per-exercise session chart; app badge; declarative Web Push; offline writes.
 - Preview deployments (disabled by `vercel.json`), custom domain, login rate limiting beyond the 1 s
   delay, alerting on sync errors without a review.
-- Multi-user, logging workouts in the app, the garage-gym plan: out of scope for v1 (D-8).
+- Multi-user, logging workouts in the app, the garage-gym plan: out of scope for v1 (owner's
+  decision).
 
 ## Key Files
 - `doc/v1/00-INDICE.md` — the series index: theme, decisions D-N, choices T-N, order, shared
