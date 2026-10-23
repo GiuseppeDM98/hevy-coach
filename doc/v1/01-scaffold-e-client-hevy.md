@@ -549,12 +549,15 @@ Che cosa NON copre: le scritture su Hevy (02), la rete reale nei test (mai).
 ## 9. Documentazione
 
 - `CLAUDE.md`: § Current Status → Latest (una riga: scaffold e client, dove sono, cosa viene dopo);
-  § Architecture: la riga del client Hevy; § Not yet present resta com'è.
+  § Current Status → Stack: via «nothing installed yet», e le versioni pinnate si leggono in
+  `package.json`; § Architecture: la riga del client Hevy; § Not yet present: la riga «Any code,
+  `package.json`, migrations» diventa «Migrations: born in spec 03», il resto resta com'è.
 - `AGENTS.md`: la sezione **§ Hevy** (già scritta al bootstrap) si completa con il retry e le buste
   delle risposte singole; **§ Commands** con gli script reali; **§ Testing** (fake-fetch, fixture,
-  `TZ`).
+  `TZ`); nell'introduzione via «Written on 2026-10-23, before any code» (da qui il codice c'è).
 - `README.md`: § Setup (pnpm, `.env.local`, `pnpm hevy:whoami`).
-- `WORKFLOW.md` § 3: la tabella dei comandi diventa vera (`typecheck`, `lint`, `test`, `build`).
+- `WORKFLOW.md` § 3: la tabella dei comandi diventa vera (`typecheck`, `lint`, `test`, `build`) e la
+  nota «State on 2026-10-23 … There is no code yet» si toglie (le colonne «Since» dicono già il resto).
 - Limiti: CLAUDE.md resta sotto 20.000 caratteri; AGENTS.md sotto 300 righe dopo questa spec.
 
 ## 10. Fuori ambito, dichiarato

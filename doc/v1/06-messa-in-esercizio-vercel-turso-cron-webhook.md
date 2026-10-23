@@ -86,7 +86,7 @@ export async function runCron(deps): Promise<Response> {
     const sync = await syncWorkouts({ db, hevy, now });
     const due = await shouldRunScheduledReview(db, now);
     if (!due) { await finishCronRun(db, id, 'review_not_due', { sync }); return NextResponse.json({ outcome: 'review_not_due', sync }); }
-    const review = await runReview({ db, hevy, model, now, trigger: 'cron' });
+    const review = await runReview({ db, hevy, model, now, clock: Date.now, trigger: 'cron' }); // now = the function's start: the deadline counts the sync above too
     const push = await sendReviewNotification({ db, review });
     await finishCronRun(db, id, 'review_run', { sync, review, push });
     return NextResponse.json({ outcome: 'review_run', review, push });
@@ -188,7 +188,7 @@ Sezioni: Requirements (Node 22, pnpm 11, Hevy Pro, Anthropic Console key, Vercel
 Clone and install · Environment variables (la tabella di § 4.3 con il significato) · Your plan
 («edit `src/lib/plan/plan.ts` and `src/lib/plan/scales.ts`, then `pnpm hevy:upload`») · Local run
 (`pnpm db:migrate`, `pnpm hevy:sync`, `pnpm dev`) · Deploy (i passi 1–6, in inglese) · Operations
-(cron, webhook, `cron_runs`, come rifare un full sync) · Costs (Opus 5.5: ~0.10 USD per review) ·
+(cron, webhook, `cron_runs`, come rifare un full sync) · Costs (Opus 5.5: il costo misurato in `doc/guide/revisione.md`) ·
 Troubleshooting (401 dal cron, webhook senza righe, Turso token scaduto).
 
 ## 5. Vincoli e trappole

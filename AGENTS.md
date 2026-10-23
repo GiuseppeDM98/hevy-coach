@@ -85,10 +85,14 @@ run from the owner's machine before the deploy that needs them.
 
 ## 6. Claude *(from spec 04 — stub; guide `doc/guide/revisione.md`)*
 Model and prices in `src/lib/review/pricing.ts` (`claude-opus-5-5`, 4 / 20 USD per MTok). One call
-per review through `client.messages.parse` with `zodOutputFormat`, `max_tokens` and `effort: 'high'`
-explicit, no prefill, no forced `tool_choice`; the parsed output is re-validated against the domain
+per review through `client.messages.parse` with `max_tokens` and `output_config: { effort: 'high',
+format: zodOutputFormat(…) }` explicit, no prefill, no forced `tool_choice`; the parsed output is
+re-validated against the domain
 (every eligible slot once, allowed actions, `next_variant` only with a successor); one retry on a
-validation error; `refusal` / `max_tokens` → review `failed`. The variant scales are data: Claude
+validation error; `refusal` / `max_tokens` → review `failed`, a refusal with its category
+(`model: refusal (bio)`). The review has one deadline inside Vercel's 300 s: each call's timeout and
+SDK retries come from the time left, a retry starts only with a minute to spare, and past the
+deadline the review is `failed` with `model: timeout`, never left `running`. The variant scales are data: Claude
 never names an exercise outside them.
 
 ## 7. Auth and app *(from spec 05a — stub; guide `doc/guide/app.md`)*

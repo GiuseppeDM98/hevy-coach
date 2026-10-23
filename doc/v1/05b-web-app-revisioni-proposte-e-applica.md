@@ -45,7 +45,7 @@
 ### 4.1 Route — `src/app/api/`
 
 - `reviews/run/route.ts`: `POST`; `sessionDenied()`; `const run = await runReview({ db: getDb(),
-  hevy: getHevyClient(), model: getReviewModel(), now: Date.now(), trigger: 'manual' })`; `await
+  hevy: getHevyClient(), model: getReviewModel(), now: Date.now(), clock: Date.now, trigger: 'manual' })`; `await
   sendReviewNotification({ db, review: run })`; JSON `run`; `export const maxDuration = 300`.
 - `proposals/[id]/apply/route.ts`, `proposals/[id]/dismiss/route.ts`, `proposals/apply-all/route.ts`:
   `POST`, guard, chiamano C-13 / `dismissProposal`, rispondono `ApplyResult` o `ApplyResult[]`;
@@ -122,7 +122,7 @@ del seed, così `applyProposal` trova la routine e il PUT riesce.
 - **F — Giro guidato (owner, dev server con `.env.local` reale)**: (1) `/`: le proposte aperte
   dell'ultima revisione reale (`pnpm review:show` concorda); (2) «Applica» su UNA proposta `keep`
   (nessuna scrittura Hevy) → «Applicata»; (3) «Esegui revisione ora» (**una chiamata reale a
-  Claude**, < 0,20 $, dopo l'OK) → `/revisioni/<id>` con il summary; (4) `/revisioni`: due righe
+  Claude**, < 0,40 $, dopo l'OK) → `/revisioni/<id>` con il summary; (4) `/revisioni`: due righe
   almeno; (5) a 390 px le schede delle proposte sono leggibili e i bottoni raggiungibili con il
   pollice. Il bug sarebbe: un bottone senza feedback, una proposta applicata due volte, un costo a
   zero con token > 0.
