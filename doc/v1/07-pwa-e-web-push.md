@@ -5,7 +5,7 @@
 > **Branch**: `feature/07-pwa-push` da `main`. **Dipende da**: 05a (shell, `isPublicPath`,
 > container, E2E), 05b (`sendReviewNotification` no-op, `PushReport`), 06 (produzione HTTPS, cron,
 > `db:migrate:remote`).
-> **Indice**: [00-INDICE.md](00-INDICE.md) — decisioni D-12, D-31, D-36, D-37, D-38, D-43; scelte
+> **Indice**: [00-INDICE.md](00-INDICE.md) — decisioni D-12, D-31, D-36, D-37, D-38, D-43, D-56; scelte
 > T-2, T-4, T-5, T-12 (`POST /api/push/test`), T-14, T-17, T-24, T-25; contratti C-7
 > (`push_subscriptions` e il repository `push-subscriptions.ts`), C-16 (lo riempie); usa C-10, C-14,
 > C-15, C-18, `createMemoryDb` (03), `listProposalsOfReview` (04).
@@ -48,7 +48,7 @@
 | A4 | `/impostazioni` › «Notifiche»: stato (`unsupported` / `ios_not_installed` → istruzioni «Condividi → Aggiungi alla schermata Home» / `denied` / `on` / `off`, più «Verifica…» finché la registrazione non è nota), interruttore che su tap chiede il permesso e sottoscrive con `NEXT_PUBLIC_VAPID_PUBLIC_KEY`, poi `POST`; bottone «Invia notifica di prova» → `POST /api/push/test` → una push «Notifica di prova» a tutte le sottoscrizioni, esito «Inviata a N dispositivi» (0 → «Nessun dispositivo iscritto»). | Unit `src/lib/push/ui-state.test.ts` (tabella di verità e ordine); E2E `pwa.spec.ts`: stato `unsupported` con `PushManager` tolto via `addInitScript` (testo e interruttore disabilitato) e stato `off` senza init script (interruttore «Attiva» abilitato). Mutazione: `supported` sempre vero → il primo caso va rosso. |
 | A5 | `sendPushToAll` (C-16): `web-push` con VAPID, payload JSON `{ title, body, url, tag }` ≤ 4 KB, `TTL: 86400`, `urgency: 'normal'`, `timeout: 10_000`, invii in parallelo; 404/410 → riga cancellata; altri errori → `last_error`; successo → `last_success_at`. `sendReviewNotification` compone i testi di T-17 con `url` **relativo** (`/revisioni/<id>` o `/`, T-24) e N = proposte non `insufficient_data` della revisione (D-43); sender **pigro** (T-25). | `send.test.ts` con sender finto: 2 sottoscrizioni, una risponde 410 → cancellata, l'altra ok; i sei casi di `sendReviewNotification`; ogni payload composto passa `PushPayloadSchema.parse`; zero sottoscrizioni e nessuna env VAPID → `{ 0, 0, 0 }` senza toccare `web-push`. Mutazione: non cancellare sul 410 → rosso; usare `proposalCount` → rosso; url assoluto → rosso. |
 | A6 | Il cron (06) e il run manuale (05b) chiamano la vera `sendReviewNotification`: nessun codice cambia lì (stessa firma, stesso `PushReport`), il no-op sparisce; i loro test restano verdi senza modifiche (T-25). | Grep: una sola definizione di `sendReviewNotification`; `pnpm test` verde senza toccare `run-cron.test.ts`. |
-| A7 | Installazione e push funzionano su Android (Chrome) e su iPhone (Safari, dalla Home) con l'app in produzione; la notifica di prova arriva; al sabato arriva quella vera. | Collaudo § 7 e misura di chiusura. |
+| A7 | Installazione e push funzionano su Android (Chrome) e su iPhone (Safari, dalla Home) con l'app in produzione; la notifica di prova arriva su entrambi i telefoni. | Collaudo § 7 F e misura di chiusura (§ 8); la prima push «Revisione pronta» del sabato è storia, annotata nella riga Stato quando arriva, non un criterio da aspettare (D-56). |
 
 ## 3. Decisioni
 
@@ -389,7 +389,7 @@ due stati di A4. `pnpm test:e2e:pwa` entra nel cancello di chiusura (WORKFLOW §
 - **G — Ripristino**: le sottoscrizioni di prova restano (sono quelle vere); la riga di Chrome
   desktop in `local.db` cancellata da «Disattiva». Nessuna fixture.
 
-Che cosa NON copre: la prima notifica del cron vero (misura di chiusura).
+Che cosa NON copre: la prima notifica del cron vero (storia, non segnale: D-56).
 
 ## 8. Messa in esercizio
 
@@ -398,10 +398,13 @@ Che cosa NON copre: la prima notifica del cron vero (misura di chiusura).
 - Chiusura secondo D-38: il commit unico porta Stato «implementata» con gli esiti di § 7 H(1)–(2);
   il giro F e la misura di chiusura si scrivono (Stato «in esercizio il <data>», CLAUDE.md Latest,
   § 5 dell'indice) nel commit di ritiro della serie (`PROMPT-RITIRO.md`).
-- Misura di chiusura: al primo sabato con revisione dovuta arriva la push «Revisione pronta» su
-  entrambi i telefoni; `push_subscriptions.last_success_at` aggiornato; `cron_runs.details_json`
-  con `push.sent = 2`. Quel sabato il cron fa il suo lavoro normale: GET Hevy e fino a due chiamate ad
-  Anthropic (< 0,80 $, 04).
+- Misura di chiusura (D-56, 2026-10-24): in produzione, dall'app installata, «Invia notifica di
+  prova» arriva su **entrambi i telefoni** entro 10 s (giro F, punti 3 e 4) e
+  `push_subscriptions.last_success_at` è valorizzato per entrambe le righe (SQL console di Turso).
+  La prima push «Revisione pronta» del sabato con revisione dovuta **NON è un segnale** e non si
+  aspetta: quando arriva (`cron_runs.details_json` con `push.sent = 2`) si annota nella riga Stato di
+  questa spec come storia. Quel sabato il cron fa il suo lavoro normale: GET Hevy e fino a due
+  chiamate ad Anthropic (< 0,80 $, 04).
 
 ## 9. Documentazione
 

@@ -27,11 +27,12 @@ sees in **README.md**; the v1 plan in **`doc/v1/`** (index `00-INDICE.md`).
   TypeScript 7, pnpm 11, Turso + Drizzle (`@libsql/client`), zod 4, Biome, Vitest, Playwright,
   Serwist (PWA), `web-push`, `@anthropic-ai/sdk` with `claude-opus-5-5`, Recharts, Tailwind 4.
   Vercel Hobby in `dub1`, Turso in `aws-eu-west-1`. Versions pinned in `doc/v1/00-INDICE.md` T-2.
-- **Latest (2026-10-24)**: adversarial reading of the whole series (8 readers + 1 transversal,
-  read-only): 277 per-spec and 37 transversal findings fixed in place in the 8 specs, 20 owner decisions D-36…D-55 and 5
-  planner choices T-23…T-27 in the index, § 6 of the index rewritten with the real signatures of
-  C-1…C-18. Not a line of code yet.
-  **Next**: `PROMPT-RITIRO.md` (prompt 08, in a session of its own), then spec 01. Still open: none.
+- **Latest (2026-10-24)**: `doc/v1/PROMPT-RITIRO.md` generated (prompt 08): the prompt that retires
+  a spec in service, every placeholder measured on this repo; decision D-56 (the closing measure of
+  06 and 07 is a manual production probe; the first real Saturday is history, not a signal) and § 8
+  of specs 06 and 07 rewritten accordingly. Same day, before it: adversarial reading of the series
+  (D-36…D-55, T-23…T-27). Not a line of code yet.
+  **Next**: spec 01 (`doc/v1/01-scaffold-e-client-hevy.md`, the prompt at its end). Still open: none.
 
 ## Architecture Snapshot (as specified; nothing exists yet)
 - `src/app` (routes, route handlers, Server Actions: thin) → `src/lib/{review,sync,apply,plan}` (use
@@ -93,6 +94,8 @@ None: no code yet.
 ## Key Files
 - `doc/v1/00-INDICE.md` — the series index: theme, decisions D-N, choices T-N, order, shared
   contracts C-N, series rules. `doc/v1/NN-*.md` — one spec per implementation session.
+  `doc/v1/PROMPT-RITIRO.md` — the prompt that retires a spec in service (its parameters are
+  re-measured after every retirement; the last retirement takes the folder with it).
 - `tests/fixtures/hevy/` — sanitised real payloads (README there says what is real and what is
   synthetic).
 - `COMMENTS.md`, `DEVELOPMENT_GUIDELINES.md` — binding for every line of code.
