@@ -7,7 +7,7 @@
 > `syncWorkouts`, `syncOneWorkout`, `shouldRunScheduledReview`, `runReview`, `sendReviewNotification`,
 > `isPublicPath`, `isPasswordCorrect`, `getSyncValue`, `setSyncValue`.
 > **Indice**: [00-INDICE.md](00-INDICE.md) — decisioni D-1, D-2, D-13, D-16, D-23, D-32, D-34, D-36,
-> D-37, D-38, D-41; scelte T-1, T-5, T-11, T-12, T-16, T-19, T-21, T-22, T-23, T-24, T-27; contratti
+> D-37, D-38, D-41, D-56; scelte T-1, T-5, T-11, T-12, T-16, T-19, T-21, T-22, T-23, T-24, T-27; contratti
 > C-7 (`cron_runs` già creata dalla 04; qui nasce il repository `cron-runs.ts`), C-8, C-11, C-14,
 > C-15, C-16, C-18 (li usa).
 
@@ -44,7 +44,7 @@
 | A3 | `vercel.json` con `regions: ["dub1"]`, il cron `{ "path": "/api/cron/review", "schedule": "17 6 * * 6" }`, `git.deploymentEnabled = { "**": false, "main": true }` (T-19); un test lo legge e verifica i valori. | `vercel-config.test.ts`. Mutazione: `"17 6 * * *"` (ogni giorno) → rosso; togliere la chiave `"**"` → rosso. |
 | A4 | Esiste il database Turso `hevy-coach` nel gruppo in `aws-eu-west-1`, **creato dall'import di `local.db`** (D-41), con `__drizzle_migrations` a 2 righe (`0000_*`, `0001_reviews`; la `0002_push` arriva con la 07) e gli stessi conteggi di `local.db` in `workouts`, `slot_state` (30), `slot_state_history`, `reviews`, `proposals`, `hevy_routines` (5), `hevy_templates` (29). | Collaudo § 7 D: `pnpm db:migrate:remote` (no-op) e le query nella SQL console del dashboard. |
 | A5 | Esiste il progetto Vercel `hevy-coach` collegato al repo GitHub, regione `dub1`, env di Production impostate (§ 4.3), deploy di `main` verde, `https://<prod>/login` raggiungibile (`<prod>` = il dominio che Vercel mostra in Settings → Domains), le pagine dietro login. | Collaudo. |
-| A6 | Il cron risulta nel dashboard; un'esecuzione manuale (`pnpm dlx vercel crons run /api/cron/review` o il bottone del dashboard) crea una riga `cron_runs` con l'esito atteso dichiarato prima (§ 4.4 passo 5); il sabato successivo ne crea un'altra da sola. | Collaudo + misura di chiusura. |
+| A6 | Il cron risulta nel dashboard; un'esecuzione manuale (`pnpm dlx vercel crons run /api/cron/review` o il bottone del dashboard) crea una riga `cron_runs` con l'esito atteso dichiarato prima (§ 4.4 passo 6); il sabato successivo ne crea un'altra da sola. | Collaudo F(3) + misura di chiusura (§ 8) per l'esecuzione manuale; la riga del sabato è storia, annotata nella riga Stato quando arriva, non un criterio da aspettare (D-56). |
 | A7 | Il webhook è iscritto su hevy.com con l'URL di produzione; salvando un allenamento su Hevy, entro un minuto `workouts` ha la riga e `/` mostra «Ultimo allenamento» aggiornato. | Collaudo. |
 | A8 | `SETUP.md` completo: da clone a produzione, per un altro utente (D-34), in inglese. | Rilettura dell'owner. |
 
@@ -376,7 +376,7 @@ uccisa a 300 s, si rilancia a mano).
   ignorato; `local.db` resta la copia di sviluppo (da qui in poi la produzione vive per sé: i due
   database divergono ed è voluto).
 
-Che cosa NON copre: push (07), il primo cron reale del sabato (misura di chiusura).
+Che cosa NON copre: push (07), il primo cron reale del sabato (storia, non segnale: D-56).
 
 ## 8. Messa in esercizio
 
@@ -384,11 +384,14 @@ Che cosa NON copre: push (07), il primo cron reale del sabato (misura di chiusur
 esiti dei passi 1–4; i passi 6–7 e la misura di chiusura si riferiscono in chat e si scrivono (Stato
 «in esercizio il <data>», CLAUDE.md Latest, § 5 dell'indice) nel primo commit della sessione 07.
 
-Misura di chiusura: **il primo sabato dopo il deploy** `cron_runs` ha una riga con `started_at` fra le
-06:00 e le 06:59 UTC, `finished_at` non null e `outcome` in (`review_not_due`, `review_run`); se
-`review_run`, `details_json` ha `review.status` diverso da `failed`. Se il sabato la riga non c'è
-(Hobby è best effort): si legge il log dei cron nel dashboard, si lancia il cron a mano (passo 6) e
-si aspetta il sabato successivo; la 07 non parte prima.
+Misura di chiusura (D-56, 2026-10-24): **il cron lanciato a mano in produzione** (passo 6: `pnpm dlx
+vercel crons run /api/cron/review` o il bottone del dashboard, esito atteso dichiarato prima) lascia
+in `cron_runs` una riga con `finished_at` non null e `outcome` in (`review_not_due`, `review_run`);
+se `review_run`, `details_json` ha `review.status` diverso da `failed`. Si legge nella SQL console di
+Turso, mai «a occhio». Il **primo sabato reale NON è un segnale** e non si aspetta: quando arriva, la
+sua riga (`started_at` fra le 06:00 e le 06:59 UTC, nata da sola) si annota nella riga Stato di questa
+spec come storia; se quel sabato la riga non c'è (Hobby è best effort) si legge il log dei cron nel
+dashboard e si rilancia a mano. La 07 parte appena la 06 è in esercizio, sabato o no.
 
 ## 9. Documentazione
 

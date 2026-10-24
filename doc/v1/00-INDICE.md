@@ -9,8 +9,9 @@
 > data di lettura. **Lettura adversariale fatta il 2026-10-24** (prompt
 > `claude-config/prompts/07_LETTURA_ADVERSARIALE_SPEC.md`; 9 lettori, 314 rilievi): ne sono nate le
 > decisioni D-36…D-55 e le scelte T-23…T-27, la tabella § 6 è stata riscritta con le firme reali e
-> ogni spec porta la riga «riletta in modo adversariale il 2026-10-24». Prossimo passo:
-> `PROMPT-RITIRO.md` (prompt 08, sessione a sé), poi la 01.
+> ogni spec porta la riga «riletta in modo adversariale il 2026-10-24». **`PROMPT-RITIRO.md`
+> generato il 2026-10-24** (prompt 08, sessione a sé; ne è nata D-56 sulle misure di chiusura di
+> 06 e 07). Prossimo passo: la 01.
 
 ## 1. Il tema, con le parole dell'owner (2026-10-23)
 
@@ -145,6 +146,7 @@ dal cedimento) è trascritto come dato dell'app nella spec 02 § 4.1, esercizio 
 | D-38 | (2026-10-24) Chiusura di una spec il cui merge è il deploy (06, 07): codice → collaudo locale → passi di produzione che non richiedono il codice nuovo (migrazione remota, env su Vercel), ognuno dopo l'OK → commit unico con Stato «implementata» → PR e merge su `main` (= deploy) → passi post-deploy riferiti in chat. Gli esiti post-merge e «in esercizio il <data>» si scrivono come **primo passo della sessione successiva** (per la 07, in un commit di sola documentazione). | 06, 07 |
 | D-39 | (2026-10-24) Retry del client Hevy: **429 su tutti i metodi** (la richiesta non è stata eseguita); **5xx solo su GET e PUT** (idempotenti); **mai su POST**: una POST con 5xx diventa subito `HevyApiError`, e il rilancio di `hevy:upload` trova per titolo ciò che è stato creato davvero. Timeout ed errori di rete non si ritentano (T-23). | 01, 02, 04 |
 | D-41 | (2026-10-24) Il database di produzione nasce **dall'import di `local.db`** (`turso db create hevy-coach --from-file local.db`, o l'import dal dashboard): stato degli slot, storia, revisioni e proposte passano in produzione intatti; poi `pnpm db:migrate:remote` (no-op) e `pnpm hevy:sync:remote` (incrementale). | 06 |
+| D-56 | (2026-10-24, nata generando `PROMPT-RITIRO.md`) La **misura di chiusura di 06 e 07 è una sonda manuale in produzione**, non il caso reale: 06 = cron lanciato a mano (§ 4.4 passo 6) → riga in `cron_runs` con `finished_at` non null; 07 = «Invia notifica di prova» arrivata su entrambi i telefoni → `push_subscriptions.last_success_at`. Il primo sabato di cron e la prima push «Revisione pronta» **non sono segnali** e non si aspettano: quando arrivano si annotano nella riga Stato della spec come storia. La 07 non aspetta il sabato della 06. | 06, 07 |
 
 ### 3.3 Rappresentazione su Hevy (2026-10-23)
 
@@ -233,7 +235,7 @@ dal cedimento) è trascritto come dato dell'app nella spec 02 § 4.1, esercizio 
 Vincolo di priorità (P1): dopo la 02 le routine sono su Hevy e l'owner si allena; dalla 04 la
 revisione gira da CLI; dalla 06 gira da sola. Una spec parte solo quando la precedente è **in
 esercizio** (§ 7.5, con la definizione di D-37 per 01–05b). La prima da incollare è il prompt in
-fondo alla 01, dopo `PROMPT-RITIRO.md`.
+fondo alla 01 (`PROMPT-RITIRO.md` è stato generato il 2026-10-24).
 
 ## 6. Contratti condivisi fra spec (da usare IDENTICI: nome, firma, file)
 
@@ -282,9 +284,10 @@ contratto e la tabella è il rilievo da correggere.
    gli esiti post-merge si scrivono come primo passo della sessione successiva (D-38). Per 01, 02,
    03, 04, 05a e 05b, che vivono prima del deploy: PR mergiata su `main` E il collaudo di § 7
    annotato in CLAUDE.md (D-37); la 06 rifà in produzione le misure di chiusura di 03–05b.
-6. **Ritiro**: una spec in esercizio si ritira con `doc/v1/PROMPT-RITIRO.md` (da generare con
-   `claude-config/prompts/08_CREA_RITIRO_SPEC.md` in una sessione a sé, dopo la lettura
-   adversariale e prima della spec 01):
+6. **Ritiro**: una spec in esercizio si ritira con `doc/v1/PROMPT-RITIRO.md` (generato il
+   2026-10-24 con `claude-config/prompts/08_CREA_RITIRO_SPEC.md`, in una sessione a sé dopo la
+   lettura adversariale e prima della spec 01; chi lo usa dopo un ritiro rimisura i parametri e
+   i precedenti e lascia il corpo com'è):
    verifica criterio per criterio, travaso in AGENTS.md / `doc/guide/` / CLAUDE.md, `git rm` della
    spec; l'indice resta finché vive una spec; l'ultimo ritiro porta via la cartella.
 7. **Dati dell'owner**: nessun id reale di routine o workout, nessun nome, nessun segreto nei file
