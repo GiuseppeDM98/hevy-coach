@@ -27,11 +27,11 @@ sees in **README.md**; the v1 plan in **`doc/v1/`** (index `00-INDICE.md`).
   TypeScript 7, pnpm 11, Turso + Drizzle (`@libsql/client`), zod 4, Biome, Vitest, Playwright,
   Serwist (PWA), `web-push`, `@anthropic-ai/sdk` with `claude-opus-5-5`, Recharts, Tailwind 4.
   Vercel Hobby in `dub1`, Turso in `aws-eu-west-1`. Versions pinned in `doc/v1/00-INDICE.md` T-2.
-- **Latest (2026-10-23)**: planning session — the v1 series is written (`doc/v1/`, order and state
-  in `00-INDICE.md` § 5), sanitised Hevy fixtures in `tests/fixtures/hevy/`; the same day's check-up
-  gave spec 04 one deadline per review and the refusal's category.
-  **Next**: the adversarial reading of the whole series (`claude-config/prompts/07_LETTURA_ADVERSARIALE_SPEC.md`),
-  then `PROMPT-RITIRO.md` (prompt 08, in a session of its own), then spec 01. Still open: none.
+- **Latest (2026-10-24)**: adversarial reading of the whole series (8 readers + 1 transversal,
+  read-only): 277 per-spec and 37 transversal findings fixed in place in the 8 specs, 20 owner decisions D-36…D-55 and 5
+  planner choices T-23…T-27 in the index, § 6 of the index rewritten with the real signatures of
+  C-1…C-18. Not a line of code yet.
+  **Next**: `PROMPT-RITIRO.md` (prompt 08, in a session of its own), then spec 01. Still open: none.
 
 ## Architecture Snapshot (as specified; nothing exists yet)
 - `src/app` (routes, route handlers, Server Actions: thin) → `src/lib/{review,sync,apply,plan}` (use
