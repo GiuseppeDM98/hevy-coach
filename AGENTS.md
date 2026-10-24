@@ -33,6 +33,8 @@ in full. Plan identifiers are stable contracts: `RoutineKey` (`mon_upper_a` …)
 ### 2.3 Secrets and the owner's data
 Secrets only in `.env.local` (gitignored) and in Vercel; `.env.example` lists every variable with an
 empty value; `src/lib/env-schema.ts` is the zod schema, `src/lib/env.ts` the server-only instance.
+Only the app imports `env.ts`; a script or a module that can also run outside Next (the DB client,
+the push sender) reads just the keys it uses with `EnvSchema.pick({ … }).parse(process.env)` (D-36).
 Nothing of the owner's data in a tracked file, commit or PR: no real routine/workout id, no name, no
 family detail (WORKFLOW.md § 1.6, public repo, no exception). Fixtures are sanitised as
 `tests/fixtures/hevy/README.md` says; test numbers are invented and round.
@@ -45,7 +47,8 @@ lower bound in `duration_seconds`), no TODO without an issue, no commented-out c
 ### 2.5 Time
 Instants are epoch ms UTC in the DB and in memory; calendar logic (days between, day start, next
 Saturday) goes through `src/lib/time.ts` in `Europe/Rome`, never through `ms / 86400000` (the
-2026-10-25 DST change makes a 25-hour day). Tests run with `TZ=Europe/Rome`.
+2026-10-25 DST change makes a 25-hour day). Tests run with `TZ=UTC`, like Vercel: calendar code
+must name `Europe/Rome` explicitly through `Intl`, so a local-time shortcut goes red in the tests.
 
 ## 3. Hevy (public API, OpenAPI 0.0.1 read 2026-10-23; the real payloads are in `tests/fixtures/hevy/`)
 - Header `api-key` (a UUID), Pro account required. Do not call exactly at xx:00 (Hevy's request).
@@ -110,6 +113,8 @@ with VAPID, iOS only from the Home Screen, a notification always shown on `push`
 
 ## 9. Testing
 - Unit tests next to the module (`*.test.ts`), AAA, names as sentences. Every pure module has one.
+  Vitest includes `src/**`, `scripts/**` and `tests/**` (not `tests/e2e/**`); a test that reads the
+  sources (`guards.test.ts`) lives in `src/app/`.
 - Repositories and use cases against an in-memory libSQL with the **real migrations**
   (`createMemoryDb()` from spec 03).
 - Hevy and Anthropic are never called in tests: `fakeFetch` + fixtures (spec 01), fake model (04),
